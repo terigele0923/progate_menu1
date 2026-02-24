@@ -94,6 +94,10 @@ img {
   border-radius: 5px;
 }
 
+.icon-spiciness {
+  width: 20px;
+}
+
 .menu-item span {
   font-size: 16px;
 }
