@@ -14,8 +14,7 @@
 	 <link href='https://fonts.googleapis.com/css?family=Pacifico|Lato' rel='stylesheet' type='text/css'>
 </head>
 <body>
-	<div class="review-wrapper">
-		<div class="review-menu-item">
+	<div class="review-wrapper container">
 		<img src="<?php echo $menu->getImage() ?>" class="menu-item-image">
 		<h3 class="menu-item-name"><?php echo $menu->getName() ?></h3>
 		
@@ -27,8 +26,6 @@
 			<?php endfor ?>
 		<?php endif ?>
 		<p class="price"><?php echo $menu->getTaxIncludedPrice() ?></p>
-		</div>
-		
         <div class="review-list-wrapper">
 		<div class="review-list">
 			<div class="review-list-title">
