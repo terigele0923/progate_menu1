@@ -31,8 +31,28 @@
 		public function getTotalPrice(){
 			return $this->getTaxIncludedPrice() * $this->orderCount;
 		}
+		
+		public function getReviews($reviews){
+			$reviewsForMenu = array();
+			foreach($reviews as $review){
+				if($review->getMenuName()==$this->name){
+					$reviewsForMenu[]= $review;
+				}
+			}
+			return $reviewsForMenu;
+		}
+		
 		public static function getCount(){
 			return self::$count;
+		}
+
+		public static function findByName($menus,$name){
+				foreach($menus as $menu){
+					if($menu->getName() === $name){
+						return $menu;
+					}
+				}
+				return null;
 		}
 	}
 ?>
