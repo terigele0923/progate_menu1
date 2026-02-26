@@ -1,5 +1,5 @@
-<?php require_once 'data.php' ?>
-<?php require_once 'menu.php'?>
+<?php require_once __DIR__ . '/../config/data.php' ?>
+<?php require_once __DIR__ . '/../Models/menu.php'?>
 <!DOCTYPE html>
 <html>
 	<head>

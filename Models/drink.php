@@ -1,4 +1,4 @@
-<?php require_once 'menu.php';
+<?php require_once __DIR__ . '/menu.php';
 	class Drink extends Menu {
 		private $type;
 		

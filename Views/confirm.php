@@ -1,4 +1,4 @@
-<?php require_once 'data.php' ?>
+<?php require_once __DIR__ . '/../config/data.php' ?>
 
 <!DOCTYPE html>
 <html>

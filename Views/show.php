@@ -1,6 +1,6 @@
 <?php
-    require_once 'data.php';
-    require_once 'menu.php';
+    require_once __DIR__ . '/../config/data.php';
+    require_once __DIR__ . '/../Models/menu.php';
     $menuName = $_GET['name'];
     $menu = Menu::findByName($menus,$menuName);
     $menuReviews = $menu->getReviews($reviews);
