@@ -1,16 +1,9 @@
-<?php
-    require_once __DIR__ . '/../config/data.php';
-    require_once __DIR__ . '/../Models/menu.php';
-    $menuName = $_GET['name'];
-    $menu = Menu::findByName($menus,$menuName);
-    $menuReviews = $menu->getReviews($reviews);
-?>
 <!DOCTYPE html>
 <html>
 <head>
 	<meta charset="utf-8">
 	<title>Progate</title>
-	<link rel="stylesheet" type="text/css" href="stylesheet.css">
+	<link rel="stylesheet" type="text/css" href="assets/stylesheet.css">
 	 <link href='https://fonts.googleapis.com/css?family=Pacifico|Lato' rel='stylesheet' type='text/css'>
 </head>
 <body>

@@ -1,8 +1,8 @@
 <?php
-require_once __DIR__ . '/../Models/drink.php';
-require_once __DIR__ . '/../Models/food.php';
-require_once __DIR__ . '/../Models/review.php';
-require_once __DIR__ . '/../Models/user.php';
+require_once __DIR__ . '/../app/Models/drink.php';
+require_once __DIR__ . '/../app/Models/food.php';
+require_once __DIR__ . '/../app/Models/review.php';
+require_once __DIR__ . '/../app/Models/user.php';
 
 function getPdo(): PDO {
     static $pdo = null;
@@ -34,9 +34,9 @@ $menuNameById = [];
 $sqlMenus = 'SELECT id, name, price, image, category, type, spiciness FROM menus ORDER BY id';
 foreach ($pdo->query($sqlMenus) as $row) {
     if ($row['category'] === 'drink') {
-        $menu = new Drink($row['name'], (int)$row['price'], $row['image'], $row['type']);
+        $menu = new Drink($row['name'], (int)$row['price'], $row['image'], $row['type'], (int)$row['id']);
     } else {
-        $menu = new Food($row['name'], (int)$row['price'], $row['image'], (int)$row['spiciness']);
+        $menu = new Food($row['name'], (int)$row['price'], $row['image'], (int)$row['spiciness'], (int)$row['id']);
     }
     $menus[] = $menu;
     $menuNameById[(int)$row['id']] = $menu->getName();

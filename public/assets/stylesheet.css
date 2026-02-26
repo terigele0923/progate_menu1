@@ -66,6 +66,28 @@ img {
   text-align: center;
 }
 
+.index-menu-list {
+  margin: 30px 0px;
+}
+
+.index-menu-list ul {
+  list-style: none;
+  padding: 0;
+}
+
+.index-menu-list li {
+  width: 120px;
+  padding: 15px;
+  background-color: #42c7c1;
+  display: inline-block;
+  margin-right: 15px;
+}
+
+.index-menu-list li a {
+  color: white;
+  font-size: 14px;
+}
+
 .menu-item-name {
   line-height: 1.7;
   font-size: 25px;
