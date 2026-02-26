@@ -13,16 +13,16 @@
 			<table class="admin-table">
 				<thead>
 					<tr>
-						<th>Select</th>
-						<th>Name</th>
-						<th>Category</th>
-						<th>Price</th>
+						<th class="cb">選択</th>
+						<th>名前</th>
+						<th>カテゴリ</th>
+						<th>価格</th>
 					</tr>
 				</thead>
 				<tbody>
 					<?php foreach ($menus as $menu): ?>
 						<tr>
-							<td>
+							<td class="cb">
 								<input type="checkbox" name="ids[]" value="<?php echo $menu->getId() ?>">
 							</td>
 							<td><?php echo htmlspecialchars($menu->getName(), ENT_QUOTES, 'UTF-8') ?></td>
@@ -32,9 +32,9 @@
 					<?php endforeach ?>
 				</tbody>
 			</table>
-			<input type="submit" value="Delete Selected">
+			<input type="submit" value="削除">
 		</form>
-		<p><a href="index.php">Back to list</a></p>
+		<p><a href="index.php">メニュー一覧に戻る</a></p>
 	</div>
 </body>
 </html>

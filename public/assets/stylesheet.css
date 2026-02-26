@@ -274,3 +274,60 @@ input[type="submit"] {
 	margin-left: 10px;
 	font-size: 15px;
 }
+
+/*table*/
+table.admin-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+table.admin-table th,
+table.admin-table td {
+  border: 1px solid #ddd;
+  padding: 8px;
+}
+
+table.admin-table th {
+  background-color: #f2f2f2;
+  text-align: left;
+}
+
+table th.cb,
+table td.cb {
+  width: 50px;
+  text-align: center;
+}
+
+.create-menu {
+  width: 400px;
+  margin: 60px auto;
+  text-align: center;
+}
+
+.create-menu p {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.create-menu input[type="text"],
+.create-menu input[type="number"],
+.create-menu select {
+  width: auto;
+  flex: 1;
+  padding: 8px;
+  margin: 10px 0 20px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+.create-menu label {
+  width: 160px;
+  text-align: left;
+  font-size: 16px;
+  color: #322f33;
+}
+
+.create-menu input[type="submit"] {
+  margin: 0 auto;
+}
