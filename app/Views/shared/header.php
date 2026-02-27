@@ -23,7 +23,7 @@ $extraHead = $extraHead ?? '';
 		<?php echo $extraHead; ?>
 	<?php endif; ?>
 </head>
-
+<?php if(isset($_SESSION['user_id'])): ?>
 <body>
 	<header class="site-header">
 		<div class="nav-inner container">
@@ -48,3 +48,24 @@ $extraHead = $extraHead ?? '';
 			</nav>
 		</div>
 	</header>
+<?php else: ?>
+<body>
+	<header class="site-header">
+		<div class="nav-inner container">
+			<a class="site-brand" href="index.php">Cafe Progate</a>
+			<input type="checkbox" id="nav-toggle" class="nav-toggle">
+			<label for="nav-toggle" class="nav-toggle-label" aria-label="Toggle navigation">
+				<span></span>
+				<span></span>
+				<span></span>
+			</label>
+			<nav class="site-nav">
+				<ul class="nav-list">
+					<li><a href="index.php?page=login">ログイン</a></li>
+					<li><a href="index.php?page=register">新規登録</a></li>
+				</ul>
+			</nav>
+		</div>
+	</header>
+<?php endif; ?>
+	

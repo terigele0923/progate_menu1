@@ -50,6 +50,7 @@ body {
 
 .login .create-menu input[type="text"],
 .login .create-menu input[type="password"] {
+  color: #bfbcc081;
   width: 100%;
   margin: 0;
   padding: 10px 12px;
