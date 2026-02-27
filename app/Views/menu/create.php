@@ -57,6 +57,12 @@ $h = static function ($value) {
 							<label>Price</label>
 							<input type="number" name="price" min="0" value="<?php echo $h($menu->getPrice()); ?>" required>
 						</p>
+
+						<p>
+							<label>Stock</label>
+							<input type="number" name="stock" min="0" value="<?php echo $h($menu->getStock()); ?>" required>
+						</p>
+
 						<p>
 							<label>Image URL</label>
 							<input type="text" name="image" value="<?php echo $h($menu->getImage()); ?>" required>
@@ -100,6 +106,10 @@ $h = static function ($value) {
 					<p>
 						<label>価格</label>
 						<input type="number" name="price" min="0" required>
+					</p>
+					<p>
+						<label>在庫</label>
+						<input type="number" name="stock" min="0" required>
 					</p>
 					<p>
 						<label>画像URL</label>

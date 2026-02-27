@@ -27,8 +27,8 @@ class MenuController
 
         require_once __DIR__ . '/../../config/data.php';
 
-        [$name, $price, $image, $category, $type, $spiciness] = $this->readMenuInput();
-        Menu::create($pdo, $name, $price, $image, $category, $type, $spiciness);
+        [$name, $price, $stock, $image, $category, $type, $spiciness] = $this->readMenuInput();
+        Menu::create($pdo, $name, $price, $image, $category, $type, $spiciness, $stock);
 
         header('Location: index.php');
         exit;
@@ -63,8 +63,8 @@ class MenuController
         require_once __DIR__ . '/../../config/data.php';
 
         $id = $_POST['id'] ?? null;
-        [$name, $price, $image, $category, $type, $spiciness] = $this->readMenuInput();
-        Menu::updateById($pdo, $id, $name, $price, $image, $category, $type, $spiciness);
+        [$name, $price, $stock, $image, $category, $type, $spiciness] = $this->readMenuInput();
+        Menu::updateById($pdo, $id, $name, $price, $image, $category, $type, $spiciness, $stock);
 
         header('Location: index.php');
         exit;
@@ -90,8 +90,17 @@ class MenuController
     {
         require_once __DIR__ . '/../../config/data.php';
 
-        $menuName = $_GET['name'] ?? '';
-        $menu = Menu::findByName($menus, $menuName);
+        $id = $_GET['id'] ?? null;
+        $menu = null;
+        if ($id !== null && $id !== '') {
+            $menu = Menu::findById($pdo, $id);
+        }
+        if ($menu === null) {
+            $menuName = $_GET['name'] ?? '';
+            if ($menuName !== '') {
+                $menu = Menu::findByName($menus, $menuName);
+            }
+        }
         if ($menu === null) {
             header('Location: index.php');
             exit;
@@ -106,6 +115,7 @@ class MenuController
     {
         $name = trim($_POST['name'] ?? '');
         $price = (int)($_POST['price'] ?? 0);
+        $stock = (int)($_POST['stock'] ?? 0);
         $image = trim($_POST['image'] ?? '');
         $category = $_POST['category'] ?? '';
         $type = trim($_POST['type'] ?? '');
@@ -116,11 +126,11 @@ class MenuController
         $spiciness = ($spicinessRaw === '') ? null : (int)$spicinessRaw;
 
         if ($category === 'drink') {
-            return [$name, $price, $image, 'drink', $type, null];
+            return [$name, $price, $stock, $image, 'drink', $type, null];
         }
         if ($category === 'food') {
-            return [$name, $price, $image, 'food', null, $spiciness];
+            return [$name, $price, $stock, $image, 'food', null, $spiciness];
         }
-        return [$name, $price, $image, null, null, null];
+        return [$name, $price, $stock, $image, null, null, null];
     }
 }

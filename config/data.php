@@ -31,12 +31,12 @@ $pdo = getPdo();
 $menus = [];
 $menuNameById = [];
 
-$sqlMenus = 'SELECT id, name, price, image, category, type, spiciness FROM menus ORDER BY id';
+$sqlMenus = 'SELECT id, name, price, image, category, type, spiciness, stock FROM menus ORDER BY id';
 foreach ($pdo->query($sqlMenus) as $row) {
     if ($row['category'] === 'drink') {
-        $menu = new Drink($row['name'], (int)$row['price'], $row['image'], $row['type'], (int)$row['id']);
+        $menu = new Drink($row['name'], (int)$row['price'], $row['image'], $row['type'], (int)$row['stock'], (int)$row['id']);
     } else {
-        $menu = new Food($row['name'], (int)$row['price'], $row['image'], (int)$row['spiciness'], (int)$row['id']);
+        $menu = new Food($row['name'], (int)$row['price'], $row['image'], (int)$row['spiciness'], (int)$row['stock'], (int)$row['id']);
     }
     $menus[] = $menu;
     $menuNameById[(int)$row['id']] = $menu->getName();
