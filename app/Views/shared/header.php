@@ -3,6 +3,9 @@ $contentTypeHeaderSent = headers_sent();
 if (!$contentTypeHeaderSent) {
 	header('Content-Type: text/html; charset=UTF-8');
 }
+if (session_status() === PHP_SESSION_NONE) {
+	session_start();
+}
 $pageTitle = $pageTitle ?? 'Cafe Progate';
 if (!isset($h) || !is_callable($h)) {
 	$h = static function ($value) {
@@ -24,7 +27,7 @@ $extraHead = $extraHead ?? '';
 	<?php endif; ?>
 </head>
 <?php if(isset($_SESSION['user_id'])): ?>
-<body>
+<body class="layout">
 	<header class="site-header">
 		<div class="nav-inner container">
 			<a class="site-brand" href="index.php">Cafe Progate</a>
