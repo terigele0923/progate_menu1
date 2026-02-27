@@ -102,12 +102,19 @@ img {
 }
 
 .menu-items {
-  margin-bottom: 60px;
+  display: flex;
+  justify-content: flex-start;
+  flex-wrap: wrap;
+  gap: 30px;
+  margin: 30px auto;
+  max-width: 1000px;
 }
 
 .menu-item {
   display: inline-block;
-  width: 40%;
+  border: 1px solid #dadada;
+  box-shadow: #89949e 0px 1px 4px;
+  width: calc(50% - 15px);
   padding: 20px;
   margin-top: 40px;
 }
