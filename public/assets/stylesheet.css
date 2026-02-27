@@ -100,20 +100,37 @@ img {
   font-size: 18px;
   color: #322f33;
 }
-
+.menu-container {
+  display: flex;
+  justify-content: center;
+}
 .menu-items {
-  margin-bottom: 60px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 30px;
+  justify-content: start;
+  width: 100%;
 }
 
 .menu-item {
+  position: relative;
   display: inline-block;
-  width: 40%;
+  border: 1px solid #dadada;
+  box-shadow: #89949e 0px 1px 4px;
+  width: calc(50% - 15px);
+  min-height: 400px;
   padding: 20px;
   margin-top: 40px;
 }
 
 .menu-item-image {
   border-radius: 5px;
+}
+.item-info {
+  position: absolute;
+  bottom: 20px;
+  left: 0;
+  width: 100%;
 }
 
 .icon-spiciness {
