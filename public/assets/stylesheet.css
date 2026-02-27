@@ -322,10 +322,14 @@ table td.cb {
 }
 
 .create-menu label {
+  background-color: #42c7c1;
+  padding: 8px 12px;
+  margin: 10px 0 20px;
+  border-radius: 4px;
   width: 160px;
   text-align: left;
   font-size: 16px;
-  color: #322f33;
+  color: white;
 }
 
 .create-menu input[type="submit"] {

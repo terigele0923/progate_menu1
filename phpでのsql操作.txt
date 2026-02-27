@@ -1,0 +1,56 @@
+$stmt = $pdo->prepare ("insert into users (name,email) values (:name,:email)");
+
+$stmt->execute ([
+	':name'=> $name,
+	':email'=>$email
+]);
+
+$stmt = $pdo->prepare("SELECT * FROM users WHERE" id = :id);
+
+$stmt->execute([':id'=>$id]);
+$user = $stmt->fetch();
+
+if($user){
+	echo $user['name'];
+}else {
+	echo "データなし";
+}
+
+$stmt = $pdo->prepare("SELECT * FROM users ORDER BY id DESC");
+
+$stmt->execute();
+
+$users = $stmt->fetchAll();
+
+foreach ($users as $user){
+	echo $user['name']."<br>";
+}
+
+$stmt = $pdo->prepare("UPDATE users set name=:name,email=:email where id=:id");
+
+$stmt->execute ([':name'=> $name,':email'=>$email,':id'=>$id]);
+
+if($stmt->rowCount() >0) {
+	echo "更新成功";
+}else {
+	echo "変更なし";
+}
+
+$stmt = $pdo->prepare ("delete from users where id = :id");
+
+$stmt->execute([':id'=>$id]);
+
+if($stmt->rowCount()>0){
+	echo "削除成功";
+}else {
+	echo "対象なし";
+}
+
+//モデル化
+
+public function findById(int $id):?arry {
+	$stmt = $this->pdo->prepare("SELECT * FROM users WHERE id = :id");
+	
+	$stmt->execute(['id'=>:id]);
+	return $stmt->fetch() ?:null;
+}

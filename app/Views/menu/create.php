@@ -13,6 +13,7 @@ $h = static function ($value) {
 	<meta charset="utf-8">
 	<title><?php echo $isEdit ? 'Edit Menu' : 'Create Menu'; ?></title>
 	<link rel="stylesheet" type="text/css" href="assets/stylesheet.css">
+	<script src="assets/category_select_script.js" defer></script>
 	<link href="https://fonts.googleapis.com/css?family=Pacifico|Lato" rel="stylesheet" type="text/css">
 </head>
 
@@ -67,13 +68,14 @@ $h = static function ($value) {
 								<option value="food" <?php echo ($menu instanceof Food) ? 'selected' : ''; ?>>food</option>
 							</select>
 						</p>
-						<p>
-							<label>Type (drink only)</label>
+						
+						<p data-field="type">
+							<label>Type</label>
 							<input type="text" name="type"
 								value="<?php echo ($menu instanceof Drink) ? $h($menu->getType()) : ''; ?>">
 						</p>
-						<p>
-							<label>Spiciness (food only)</label>
+						<p data-field="spiciness">
+							<label>Spiciness</label>
 							<input type="number" name="spiciness" min="0"
 								value="<?php echo ($menu instanceof Food) ? $h($menu->getSpiciness()) : ''; ?>">
 						</p>
@@ -110,12 +112,13 @@ $h = static function ($value) {
 							<option value="food">food</option>
 						</select>
 					</p>
-					<p>
-						<label>タイプ (drink のみ)</label>
+					
+					<p data-field="type">
+						<label>タイプ</label>
 						<input type="text" name="type">
 					</p>
-					<p>
-						<label>辛さ (food のみ)</label>
+					<p data-field="spiciness">
+						<label>辛さ</label>
 						<input type="number" name="spiciness" min="0">
 					</p>
 					<p>
