@@ -49,6 +49,111 @@ img {
   margin-left: auto;
 }
 
+/* header / navigation */
+.site-header {
+  height: 80px;
+  font-weight: 1000;
+  background-color: #ffffff;
+  border-bottom: 1px solid #e6edf3;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+
+.nav-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  min-height: 64px;
+  gap: 16px;
+  position: relative;
+}
+
+.site-brand {
+  font-family: Pacifico, sans-serif;
+  font-size: 26px;
+  color: #4ac0b9;
+}
+
+.nav-toggle {
+  display: none;
+}
+
+.nav-toggle-label {
+  display: none;
+  width: 40px;
+  height: 40px;
+  border-radius: 6px;
+  border: 1px solid #d7e1e8;
+  align-items: center;
+  justify-content: center;
+  gap: 5px;
+  cursor: pointer;
+}
+
+.nav-toggle-label span {
+  display: block;
+  width: 22px;
+  height: 2px;
+  background-color: #322f33;
+  transition: transform 0.2s ease, opacity 0.2s ease;
+}
+
+.site-nav .nav-list {
+  list-style: none;
+  display: flex;
+  gap: 18px;
+  align-items: center;
+}
+
+.site-nav .nav-list a {
+  background-color: #42c7c1;
+  color: #ffffff;
+  font-size: 14px;
+  padding: 16px;
+  border-radius: 4px;
+}
+
+@media (max-width: 900px) {
+  .nav-toggle-label {
+    display: inline-flex;
+  }
+
+  .site-nav {
+    position: fixed;
+    left: 0;
+    top: 64px;
+    bottom: 0;
+    width: 240px;
+    background-color: #ffffff;
+    border-right: 1px solid #e6edf3;
+    box-shadow: 4px 0 12px rgba(0, 0, 0, 0.06);
+    transform: translateX(-100%);
+    transition: transform 0.25s ease;
+    overflow-y: auto;
+  }
+
+  .site-nav .nav-list {
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 16px;
+    gap: 10px;
+  }
+
+  .nav-toggle:checked ~ .site-nav {
+    transform: translateX(0);
+  }
+
+  .nav-toggle:checked + .nav-toggle-label span:nth-child(1) {
+    transform: translateY(7px) rotate(45deg);
+  }
+  .nav-toggle:checked + .nav-toggle-label span:nth-child(2) {
+    opacity: 0;
+  }
+  .nav-toggle:checked + .nav-toggle-label span:nth-child(3) {
+    transform: translateY(-7px) rotate(-45deg);
+  }
+}
 /* メニュー一覧 */
 .logo {
   font-family: Pacifico, sans-serif;
@@ -66,24 +171,24 @@ img {
   text-align: center;
 }
 
-.index-menu-list {
+.list {
   margin: 30px 0px;
 }
 
-.index-menu-list ul {
+.list ul {
   list-style: none;
   padding: 0;
 }
 
-.index-menu-list li {
-  width: 120px;
+.list li {
+  width: 150px;
   padding: 15px;
   background-color: #42c7c1;
   display: inline-block;
   margin-right: 15px;
 }
 
-.index-menu-list li a {
+.list li a {
   color: white;
   font-size: 14px;
 }
@@ -126,6 +231,10 @@ img {
 
 .menu-item-image {
   border-radius: 5px;
+  display: block;
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
 }
 .item-info {
   
@@ -164,6 +273,35 @@ input[type="submit"] {
   background-color: #42c7c1;
   font-size: 15px;
   letter-spacing: 0.1em;
+}
+
+.auth-actions {
+  display: flex;
+  gap: 12px;
+  justify-content: center;
+  margin-top: 10px;
+  flex-wrap: wrap;
+}
+
+.auth-link {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 160px;
+  height: 48px;
+  line-height: 48px;
+  padding: 0 20px;
+  border-radius: 30px;
+  color: white;
+  background-color: #42c7c1;
+  font-size: 15px;
+  letter-spacing: 0.1em;
+  text-decoration: none;
+}
+
+.auth-link:hover {
+  text-decoration: none;
+  opacity: 0.9;
 }
 
 /* 注文確認 */
@@ -330,6 +468,7 @@ table td.cb {
 
 .create-menu input[type="text"],
 .create-menu input[type="number"],
+.create-menu input[type="password"],
 .create-menu select {
   width: auto;
   flex: 1;

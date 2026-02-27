@@ -1,24 +1,10 @@
-<!DOCTYPE html>
-<html>
-
-<head>
-    <meta charset="utf-8">
-    <title>Cafe Progate</title>
-    <link rel="stylesheet" type="text/css" href="assets/stylesheet.css">
-    <link href="https://fonts.googleapis.com/css?family=Pacifico|Lato" rel="stylesheet" type="text/css">
-</head>
-
-<body>
+<?php
+$pageTitle = 'Cafe Progate';
+require __DIR__ . '/../shared/header.php';
+?>
     <div class="menu-wrapper container">
         <h1 class="logo">Cafe Progate</h1>
-        <h3>メニュー<?php echo Menu::getCount() ?>個</h3>
-        <div class="index-menu-list">
-            <ul>
-                <li><a href="index.php?page=create">メニュー作成</a></li>
-                <li><a href="index.php?page=edit">メニュー編集</a></li>
-                <li><a href="index.php?page=delete">メニュー削除</a></li>
-            </ul>
-        </div>
+        <h3>メニュー<?php echo Menu::getCount() ?>品</h3>
         <div class="menu-container">
             <div class="menu-items">
                 <?php foreach ($menus as $menu): ?>

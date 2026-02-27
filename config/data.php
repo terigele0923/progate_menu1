@@ -42,15 +42,7 @@ foreach ($pdo->query($sqlMenus) as $row) {
     $menuNameById[(int)$row['id']] = $menu->getName();
 }
 
-$users = [];
-$userByDbId = [];
-
-$sqlUsers = 'SELECT id, name, gender FROM users ORDER BY id';
-foreach ($pdo->query($sqlUsers) as $row) {
-    $user = new User($row['name'], $row['gender']);
-    $users[] = $user;
-    $userByDbId[(int)$row['id']] = $user;
-}
+[$users, $userByDbId] = User::fetchAll($pdo);
 
 $reviews = [];
 

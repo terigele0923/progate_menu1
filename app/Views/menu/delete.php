@@ -1,14 +1,9 @@
-<!DOCTYPE html>
-<html>
-<head>
-	<meta charset="utf-8">
-	<title>Delete Menu</title>
-	<link rel="stylesheet" type="text/css" href="assets/stylesheet.css">
-	<link href='https://fonts.googleapis.com/css?family=Pacifico|Lato' rel='stylesheet' type='text/css'>
-</head>
-<body>
+<?php
+$pageTitle = 'メニュー削除';
+require __DIR__ . '/../shared/header.php';
+?>
 	<div class="menu-wrapper container">
-		<h1 class="logo">Delete Menu</h1>
+		<h1 class="logo">メニュー削除</h1>
 		<form action="index.php?page=delete" method="post">
 			<table class="admin-table">
 				<thead>

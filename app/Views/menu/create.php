@@ -5,21 +5,12 @@ $menu = $menu ?? null;
 $h = static function ($value) {
 	return htmlspecialchars((string) $value, ENT_QUOTES, 'UTF-8');
 };
+$pageTitle = $isEdit ? 'メニュー編集' : 'メニュー作成';
+$extraHead = '<script src="assets/category_select_script.js" defer></script>';
+require __DIR__ . '/../shared/header.php';
 ?>
-<!DOCTYPE html>
-<html>
-
-<head>
-	<meta charset="utf-8">
-	<title><?php echo $isEdit ? 'Edit Menu' : 'Create Menu'; ?></title>
-	<link rel="stylesheet" type="text/css" href="assets/stylesheet.css">
-	<script src="assets/category_select_script.js" defer></script>
-	<link href="https://fonts.googleapis.com/css?family=Pacifico|Lato" rel="stylesheet" type="text/css">
-</head>
-
-<body>
 	<div class="menu-wrapper container">
-		<h1 class="logo"><?php echo ($mode === 'edit') ? 'メニュー編集' : 'メニュー作成'; ?></h1>
+		<h1 class="logo"><?php echo $isEdit ? 'メニュー編集' : 'メニュー作成'; ?></h1>
 
 		<?php switch ($mode):
 			case 'edit': ?>
@@ -50,25 +41,25 @@ $h = static function ($value) {
 					<form action="index.php?page=update" method="post" class="menu-form">
 						<input type="hidden" name="id" value="<?php echo $menu->getId(); ?>">
 						<p>
-							<label>Name</label>
+							<label>名前</label>
 							<input type="text" name="name" value="<?php echo $h($menu->getName()); ?>" required>
 						</p>
 						<p>
-							<label>Price</label>
+							<label>価格</label>
 							<input type="number" name="price" min="0" value="<?php echo $h($menu->getPrice()); ?>" required>
 						</p>
 
 						<p>
-							<label>Stock</label>
+							<label>在庫</label>
 							<input type="number" name="stock" min="0" value="<?php echo $h($menu->getStock()); ?>" required>
 						</p>
 
 						<p>
-							<label>Image URL</label>
+							<label>画像URL</label>
 							<input type="text" name="image" value="<?php echo $h($menu->getImage()); ?>" required>
 						</p>
 						<p>
-							<label>Category</label>
+							<label>カテゴリ</label>
 							<select name="category">
 								<option value="drink" <?php echo ($menu instanceof Drink) ? 'selected' : ''; ?>>drink</option>
 								<option value="food" <?php echo ($menu instanceof Food) ? 'selected' : ''; ?>>food</option>
@@ -76,12 +67,12 @@ $h = static function ($value) {
 						</p>
 						
 						<p data-field="type">
-							<label>Type</label>
+							<label>タイプ</label>
 							<input type="text" name="type"
 								value="<?php echo ($menu instanceof Drink) ? $h($menu->getType()) : ''; ?>">
 						</p>
 						<p data-field="spiciness">
-							<label>Spiciness</label>
+							<label>辛さ</label>
 							<input type="number" name="spiciness" min="0"
 								value="<?php echo ($menu instanceof Food) ? $h($menu->getSpiciness()) : ''; ?>">
 						</p>
@@ -97,7 +88,7 @@ $h = static function ($value) {
 				<?php break;
 			default: ?>
 				<div class="create-menu">
-					<h2>メニューを追加する</h2>
+					<h2>メニューを作成する</h2>
 				<form action="index.php?page=store" method="post" class="menu-form">
 					<p>
 						<label>名前</label>
@@ -132,7 +123,7 @@ $h = static function ($value) {
 						<input type="number" name="spiciness" min="0">
 					</p>
 					<p>
-						<input type="submit" value="Create">
+						<input type="submit" value="作成">
 					</p>
 				</form>
 				<p><a href="index.php">メニュー一覧に戻る</a></p>

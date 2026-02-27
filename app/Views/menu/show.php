@@ -1,14 +1,7 @@
-<!DOCTYPE html>
-<html>
-
-<head>
-    <meta charset="utf-8">
-    <title>メニュー詳細</title>
-    <link rel="stylesheet" type="text/css" href="assets/stylesheet.css">
-    <link href="https://fonts.googleapis.com/css?family=Pacifico|Lato" rel="stylesheet" type="text/css">
-</head>
-
-<body>
+<?php
+$pageTitle = 'メニュー詳細';
+require __DIR__ . '/../shared/header.php';
+?>
     <div class="review-wrapper">
         <div class="review-menu-item">
             <img src="<?php echo $menu->getImage() ?>" class="menu-item-image">
@@ -27,9 +20,9 @@
             <?php if ($menu->getStock() > 0): ?>
                 <form action="index.php?page=confirm" method="post" class="order-form">
                     <input type="hidden" name="menu_id" value="<?php echo $menu->getId() ?>">
-                    <label>数量</label>
+                    <label>注文数</label>
                     <input type="number" name="quantity" min="1" max="<?php echo $menu->getStock() ?>" value="1">
-                    <input type="submit" value="注文">
+                    <input type="submit" value="注文する">
                 </form>
             <?php else: ?>
                 <p class="stock-empty">在庫切れ</p>
@@ -62,7 +55,7 @@
                 <?php endforeach ?>
             </div>
         </div>
-        <a href="index.php">メニュー一覧へ戻る</a>
+        <a href="index.php">メニュー一覧に戻る</a>
     </div>
 </body>
 
