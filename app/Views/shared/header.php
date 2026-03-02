@@ -46,13 +46,13 @@ $extraHead = $extraHead ?? '';
 					<li><a href="index.php?page=edit">メニュー編集</a></li>
 					<li><a href="index.php?page=delete">メニュー削除</a></li>
 					<li><a href="index.php?page=create">メニュー作成</a></li>
-					<li><a href="index.php?page=account">アカウント</a></li>
 				</ul>
 			</nav>
 		</div>
 	</header>
+</body>
 <?php else: ?>
-<body>
+<body class="layout">
 	<header class="site-header">
 		<div class="nav-inner container">
 			<a class="site-brand" href="index.php">Cafe Progate</a>
@@ -70,5 +70,6 @@ $extraHead = $extraHead ?? '';
 			</nav>
 		</div>
 	</header>
+</body>
 <?php endif; ?>
 	
